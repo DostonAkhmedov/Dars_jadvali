@@ -18,7 +18,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->textField($model,'name',array('size'=>100,'maxlength'=>100)); ?>
 	</div>
 
 	<div class="row">

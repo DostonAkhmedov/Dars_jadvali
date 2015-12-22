@@ -31,6 +31,12 @@
 		<?php echo $form->error($model,'faculty_id'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->labelEx($model,'direction_id'); ?>
+		<?php echo $form->textField($model,'direction_id'); ?>
+		<?php echo $form->error($model,'direction_id'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

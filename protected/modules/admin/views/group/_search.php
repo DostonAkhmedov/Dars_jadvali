@@ -26,6 +26,11 @@
 		<?php echo $form->textField($model,'faculty_id'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'direction_id'); ?>
+		<?php echo $form->textField($model,'direction_id'); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

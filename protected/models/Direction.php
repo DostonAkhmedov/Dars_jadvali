@@ -32,7 +32,7 @@ class Direction extends CActiveRecord
 		return array(
 			array('name, faculty_id', 'required'),
 			array('faculty_id', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>50),
+			array('name', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, faculty_id', 'safe', 'on'=>'search'),
@@ -49,6 +49,7 @@ class Direction extends CActiveRecord
 		return array(
 			'faculty' => array(self::BELONGS_TO, 'Faculty', 'faculty_id'),
 			'subjects' => array(self::HAS_MANY, 'Subject', 'direction_id'),
+			'groups' => array(self::HAS_MANY, 'Group', 'direction_id'),
 		);
 	}
 

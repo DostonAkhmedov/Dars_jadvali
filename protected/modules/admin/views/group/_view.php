@@ -17,5 +17,9 @@
 	<?php echo CHtml::encode($data->faculty_id); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('direction_id')); ?>:</b>
+	<?php echo CHtml::encode($data->direction_id); ?>
+	<br />
+
 
 </div>

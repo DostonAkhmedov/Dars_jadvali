@@ -24,5 +24,6 @@ $this->menu=array(
 		'id',
 		'name',
 		'faculty_id',
+		'direction_id',
 	),
 )); ?>
