@@ -28,10 +28,20 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 		$directions = Direction::model()->findAll();
-
+		$dirs =array('Tanlang') + CHtml::listData($directions,'id','name');
 		$this->render('index',[
-			'directions'=>$directions,
+			'directions'=>$dirs,
 		]);
+	}
+
+	public function actionGetGroups(){
+		$keys = array_keys($_GET);
+		$direction_id = (int)$keys[0];
+		$direction = Direction::model()->findByPk($direction_id);
+		$groups = CHtml::listData($direction->groups,'id','name');
+		foreach($groups as $value=>$name){
+			echo '<option value="'.$value.'">'.$name.'</option>';
+		}
 	}
 
 	/**

@@ -24,10 +24,10 @@
 		<?php echo $form->textField($model,'fio',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'fio'); ?>
 	</div>
-
+<br>
 	<div class="row">
 		<?php echo $form->labelEx($model,'department_id'); ?>
-		<?php echo $form->textField($model,'department_id'); ?>
+		<?php echo $form->dropDownList($model,'department_id',Department::forTeacher()); ?>
 		<?php echo $form->error($model,'department_id'); ?>
 	</div>
 

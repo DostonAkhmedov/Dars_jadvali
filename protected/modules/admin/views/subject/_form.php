@@ -24,16 +24,16 @@
 		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
-
+<br>
 	<div class="row">
 		<?php echo $form->labelEx($model,'course'); ?>
-		<?php echo $form->textField($model,'course'); ?>
+		<?php echo $form->dropDownList($model,'course',[1=>'1',2=>'2',3=>'3',4=>'4',5=>'M1',6=>'M2']); ?>
 		<?php echo $form->error($model,'course'); ?>
 	</div>
-
+<br>
 	<div class="row">
 		<?php echo $form->labelEx($model,'direction_id'); ?>
-		<?php echo $form->textField($model,'direction_id'); ?>
+		<?php echo $form->dropDownList($model,'direction_id',Direction::all()); ?>
 		<?php echo $form->error($model,'direction_id'); ?>
 	</div>
 

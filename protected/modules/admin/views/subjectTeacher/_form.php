@@ -21,13 +21,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'subject_id'); ?>
-		<?php echo $form->textField($model,'subject_id'); ?>
+		<?php echo $form->dropDownList($model,'subject_id',Subject::subjects()); ?>
 		<?php echo $form->error($model,'subject_id'); ?>
 	</div>
-
+<br>
 	<div class="row">
 		<?php echo $form->labelEx($model,'teacher_id'); ?>
-		<?php echo $form->textField($model,'teacher_id'); ?>
+		<?php echo $form->dropDownList($model,'teacher_id',Teacher::teachers()); ?>
 		<?php echo $form->error($model,'teacher_id'); ?>
 	</div>
 

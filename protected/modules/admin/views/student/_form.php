@@ -21,10 +21,10 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'group_id'); ?>
-		<?php echo $form->textField($model,'group_id'); ?>
+		<?php echo $form->dropDownList($model,'group_id',Group::groups()); ?>
 		<?php echo $form->error($model,'group_id'); ?>
 	</div>
-
+<br>
 	<div class="row">
 		<?php echo $form->labelEx($model,'fio'); ?>
 		<?php echo $form->textField($model,'fio',array('size'=>50,'maxlength'=>50)); ?>

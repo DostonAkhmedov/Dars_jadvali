@@ -126,6 +126,7 @@ class DepartmentController extends Controller
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
+
 	}
 
 	/**

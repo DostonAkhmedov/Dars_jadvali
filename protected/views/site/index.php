@@ -7,34 +7,42 @@ $this->pageTitle = Yii::app()->name;
 
 <div class="panel-body">
     <div class="">
-        <?php $i = 0; ?>
-        <ul class="">
-            <?php foreach ($directions as $direction):
-                $i++; ?>
-                <?php if ($direction): ?>
-                <li <?= ($i == 1) ? ' class="active"' : ""; ?>><a href="#<?= $direction->id ?>" data-toggle="tab"><i
-                            class="fa fa-random"></i><?= $direction->name ?>
-                    </a>
-                </li>
-            <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
+        <?php echo CHtml::dropdownList('department','',$directions,array(
+            'ajax'=>array(
+                'type'=>'get',
+                'url'=>CController::createUrl('site/getGroups'),
+                'update'=>'#groups',
+                'data'=>'js:$("#department").val()'
+            )
+        )); ?>
         <br>
-        <?php $i = 0; ?>
-        <div class="tab-content">
-            <?php foreach ($directions as $direction): $i++; ?>
-                <div <?= ($i == 1) ? ' class="tab-pane fade active in"' : ' class="tab-pane fade"' ?>
-                    id="<?= $direction->id ?>">
-                    <select class="form-control">
-                        <option>Guruh</option>
-                        <?php foreach ($direction->groups as $group): ?>
-                            <?php if ($group): ?>
-                                <option value="<?= $group->id ?>"><?= $group->name ?></option>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <br>
+        <?php echo CHtml::dropdownList('groups','',array());?>
+        <br>
+
     </div>
+    <br>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr class="label-primary">
+            <th>para</th>
+            <th>dars</th>
+            <th>xona</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <td>1</td>
+            <td>kshcs</td>
+            <td>311</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>xdvn</td>
+            <td>109</td>
+        </tr>
+        </tbody>
+    </table>
 </div>

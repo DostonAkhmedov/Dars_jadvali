@@ -93,6 +93,11 @@ class Teacher extends CActiveRecord
 		));
 	}
 
+	public function teachers(){
+		$models=self::model()->findAll();
+		return CHtml::listData($models,'id','fio');
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

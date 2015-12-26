@@ -30,22 +30,48 @@
 
 <div class="container" id="page">
 
-    <div id="header">
-        <div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-    </div>
+<!--    <div id="header">-->
+<!--        <div id="logo">--><?php //echo CHtml::encode(Yii::app()->name); ?><!--</div>-->
+<!--    </div>-->
     <!-- header -->
+<div style="margin-top: 100px"></div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#example-navbar-collapse-6">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>">Dars jadvali</a>
+            </div>
 
-    <div id="mainmenu">
-        <?php $this->widget('zii.widgets.CMenu', array(
-            'items' => array(
-                array('label' => 'Home', 'url' => array('/site/index')),
-                array('label' => 'About', 'url' => array('/site/page', 'view' => 'about')),
-                array('label' => 'Contact', 'url' => array('/site/contact')),
-                array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
-            ),
-        )); ?>
-    </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/index">Home</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/contact">Contact</a></li>
+                    <?php if (Yii::app()->user->isGuest): ?>
+                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/login">Login</a></li>
+                    <?php else: ?>
+                        <li>
+                            <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/logout">
+                                Logout(<?php echo Yii::app()->user->name; ?>)
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <form class="navbar-form navbar-right" role="search" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="Searching">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
     <!-- mainmenu -->
     <?php if (isset($this->breadcrumbs)): ?>
         <?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -57,15 +83,15 @@
 
     <div class="clear"></div>
 
-        <div id="footer">
-            Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-            All Rights Reserved.<br/>
-            <?php echo Yii::powered(); ?>
-        </div>
-        <!-- footer -->
-
+    <div id="footer">
+        Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+        All Rights Reserved.<br/>
+        <?php echo Yii::powered(); ?>
     </div>
-    <!-- page -->
+    <!-- footer -->
+
+</div>
+<!-- page -->
 
 </body>
 </html>
