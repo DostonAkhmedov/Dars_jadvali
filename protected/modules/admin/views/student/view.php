@@ -22,7 +22,10 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'group_id',
+		'group_id'=>[
+			'name'=>'group_id',
+			'value'=>$model->group->name,
+		],
 		'fio',
 	),
 )); ?>

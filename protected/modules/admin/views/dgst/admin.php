@@ -45,12 +45,37 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
-		'day_id',
-		'group_id',
-		'subject_id',
-		'teacher_id',
-		'para',
+		'id'=>[
+			'name'=>'id',
+			'htmlOptions'=>['width'=>30],
+		],
+		'day_id'=>[
+			'name'=>'day_id',
+			'value'=>'$data->day->name',
+			'filter'=>Day::days(),
+		],
+		'group_id'=>[
+			'name'=>'group_id',
+			'value'=>'$data->group->name',
+			'filter'=>Group::groups(),
+		],
+		'subject_id'=>[
+			'name'=>'subject_id',
+			'value'=>'$data->subject->name',
+			'filter'=>Subject::subjects(),
+		],
+		'teacher_id'=>[
+			'name'=>'teacher_id',
+			'value'=>'$data->teacher->fio',
+			'filter'=>Teacher::teachers(),
+		],
+		'para'=>[
+			'name'=>'para',
+			'filter'=>Dgst::para(),
+		],
+		/*
+		'room',
+		*/
 		array(
 			'class'=>'CButtonColumn',
 		),

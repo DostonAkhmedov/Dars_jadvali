@@ -22,10 +22,23 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'day_id',
-		'group_id',
-		'subject_id',
-		'teacher_id',
+		'day_id'=>[
+			'name'=>'day_id',
+			'value'=>$model->day->name,
+		],
+		'group_id'=>[
+			'name'=>'group_id',
+			'value'=>$model->group->name,
+		],
+		'subject_id'=>[
+			'name'=>'subject_id',
+			'value'=>$model->subject->name,
+		],
+		'teacher_id'=>[
+			'name'=>'teacher_id',
+			'value'=>$model->teacher->fio,
+		],
 		'para',
+		'room',
 	),
 )); ?>

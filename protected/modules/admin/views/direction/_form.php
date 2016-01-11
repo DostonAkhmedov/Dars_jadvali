@@ -27,7 +27,7 @@
 <br>
 	<div class="row">
 		<?php echo $form->labelEx($model,'faculty_id'); ?>
-		<?php echo $form->dropDownList($model,'faculty_id',Faculty::faculties()); ?>
+		<?php echo $form->dropDownList($model,'faculty_id',Faculty::all()); ?>
 		<?php echo $form->error($model,'faculty_id'); ?>
 	</div>
 

@@ -10,11 +10,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('subject_id')); ?>:</b>
-	<?php echo CHtml::encode($data->subject_id); ?>
+	<?php echo CHtml::encode($data->subject->name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('teacher_id')); ?>:</b>
-	<?php echo CHtml::encode($data->teacher_id); ?>
+	<?php echo CHtml::encode($data->teacher->fio); ?>
 	<br />
 
 

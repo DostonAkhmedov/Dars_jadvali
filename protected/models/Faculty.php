@@ -89,7 +89,7 @@ class Faculty extends CActiveRecord
 		));
 	}
 
-	public function all(){
+	public static function all(){
 		$models=self::model()->findAll();
 		return CHtml::listData($models,'id','name');
 	}

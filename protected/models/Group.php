@@ -42,6 +42,17 @@ class Group extends CActiveRecord
 		);
 	}
 
+	public static function courses(){
+		$array=[];
+		for($i=1; $i<=6; $i++){
+			if($i>4)
+				$array[$i]="Magistrant ".($i-4)."-kurs";
+			else
+			$array[$i]=$i."-kurs";
+		}
+		return $array;
+	}
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -98,7 +109,7 @@ class Group extends CActiveRecord
 		));
 	}
 
-	public function groups(){
+	public static function groups(){
 		$models=self::model()->findAll();
 		return CHtml::listData($models,'id','name');
 	}

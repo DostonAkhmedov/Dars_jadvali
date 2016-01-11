@@ -93,7 +93,7 @@ class Teacher extends CActiveRecord
 		));
 	}
 
-	public function teachers(){
+	public static function teachers(){
 		$models=self::model()->findAll();
 		return CHtml::listData($models,'id','fio');
 	}

@@ -8,7 +8,8 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Dars jadvali',
-
+	'theme'=>'custom_theme',
+	
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -32,6 +33,13 @@ return array(
 
 	// application components
 	'components'=>array(
+
+		'authManager' => array(
+			// Будем использовать свой менеджер авторизации
+			'class' => 'PhpAuthManager',
+			// Роль по умолчанию. Все, кто не админы, модераторы и юзеры — гости.
+			'defaultRoles' => array('guest'),
+		),
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

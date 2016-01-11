@@ -18,27 +18,32 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'day_id'); ?>
-		<?php echo $form->textField($model,'day_id'); ?>
+		<?php echo $form->dropDownList($model,'day_id',Day::days()); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'group_id'); ?>
-		<?php echo $form->textField($model,'group_id'); ?>
+		<?php echo $form->dropDownList($model,'group_id',Group::groups()); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'subject_id'); ?>
-		<?php echo $form->textField($model,'subject_id'); ?>
+		<?php echo $form->dropDownList($model,'subject_id',Subject::subjects()); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'teacher_id'); ?>
-		<?php echo $form->textField($model,'teacher_id'); ?>
+		<?php echo $form->dropDownList($model,'teacher_id',Teacher::teachers()); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'para'); ?>
-		<?php echo $form->textField($model,'para'); ?>
+		<?php echo $form->dropDownList($model,'para',Dgst::para()); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'room'); ?>
+		<?php echo $form->textField($model,'room',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
 	<div class="row buttons">

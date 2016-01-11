@@ -23,7 +23,12 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'name',
-		'course',
-		'direction_id',
+		'course'=>[
+			'name'=>'course',
+		],
+		'direction_id'=>[
+			'name'=>'direction_id',
+			'value'=>$model->direction->name,
+		],
 	),
 )); ?>

@@ -22,7 +22,13 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'subject_id',
-		'teacher_id',
+		'subject_id'=>[
+			'name'=>'subject_id',
+			'value'=>$model->subject->name,
+		],
+		'teacher_id'=>[
+			'name'=>'teacher_id',
+			'value'=>$model->teacher->fio,
+		],
 	),
 )); ?>

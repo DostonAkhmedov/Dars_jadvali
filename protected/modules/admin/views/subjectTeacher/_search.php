@@ -18,12 +18,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'subject_id'); ?>
-		<?php echo $form->textField($model,'subject_id'); ?>
+		<?php echo $form->dropDownList($model,'subject_id',Subject::subjects()); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'teacher_id'); ?>
-		<?php echo $form->textField($model,'teacher_id'); ?>
+		<?php echo $form->dropDownList($model,'teacher_id',Teacher::teachers()); ?>
 	</div>
 
 	<div class="row buttons">

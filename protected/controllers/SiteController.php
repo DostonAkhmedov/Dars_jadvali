@@ -28,9 +28,11 @@ class SiteController extends Controller
 	public function actionIndex()
 	{
 		$directions = Direction::model()->findAll();
+		$days=Day::model()->findAll();
 		$dirs =array('Tanlang') + CHtml::listData($directions,'id','name');
 		$this->render('index',[
 			'directions'=>$dirs,
+			'days'=>$days,
 		]);
 	}
 

@@ -23,12 +23,12 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'course'); ?>
-		<?php echo $form->textField($model,'course'); ?>
+		<?php echo $form->dropDownList($model,'course',Group::courses()); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'direction_id'); ?>
-		<?php echo $form->textField($model,'direction_id'); ?>
+		<?php echo $form->dropDownList($model,'direction_id',Direction::all()); ?>
 	</div>
 
 	<div class="row buttons">

@@ -21,32 +21,38 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'day_id'); ?>
-		<?php echo $form->textField($model,'day_id'); ?>
+		<?php echo $form->dropDownList($model,'day_id',Day::days()); ?>
 		<?php echo $form->error($model,'day_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'group_id'); ?>
-		<?php echo $form->textField($model,'group_id'); ?>
+		<?php echo $form->dropDownList($model,'group_id',Group::groups()); ?>
 		<?php echo $form->error($model,'group_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'subject_id'); ?>
-		<?php echo $form->textField($model,'subject_id'); ?>
+		<?php echo $form->dropDownList($model,'subject_id',Subject::subjects()); ?>
 		<?php echo $form->error($model,'subject_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'teacher_id'); ?>
-		<?php echo $form->textField($model,'teacher_id'); ?>
+		<?php echo $form->dropDownList($model,'teacher_id',Teacher::teachers()); ?>
 		<?php echo $form->error($model,'teacher_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'para'); ?>
-		<?php echo $form->textField($model,'para'); ?>
+		<?php echo $form->dropDownList($model,'para',Dgst::para()); ?>
 		<?php echo $form->error($model,'para'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'room'); ?>
+		<?php echo $form->textField($model,'room',array('size'=>10,'maxlength'=>10)); ?>
+		<?php echo $form->error($model,'room'); ?>
 	</div>
 
 	<div class="row buttons">

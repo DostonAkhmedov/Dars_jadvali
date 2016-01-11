@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('group_id')); ?>:</b>
-	<?php echo CHtml::encode($data->group_id); ?>
+	<?php echo CHtml::encode($data->group->name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('fio')); ?>:</b>

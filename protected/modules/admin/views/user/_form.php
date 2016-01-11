@@ -24,17 +24,29 @@
 		<?php echo $form->textField($model,'username',array('size'=>20,'maxlength'=>20)); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
-<br>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password',array('size'=>24,'maxlength'=>24)); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
-<br>
+
 	<div class="row">
 		<?php echo $form->labelEx($model,'fio'); ?>
 		<?php echo $form->textField($model,'fio',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'fio'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->textField($model,'role'); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
+		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="row buttons">

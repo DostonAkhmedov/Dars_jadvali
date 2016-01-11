@@ -82,7 +82,6 @@
     All Rights Reserved.<br/>
     <?php echo Yii::powered(); ?>
 </div>
-</div>
 <!-- page -->
 
 </body>

@@ -23,6 +23,9 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'fio',
-		'department_id',
+		'department_id'=>[
+			'name'=>'department_id',
+			'value'=>$model->department->name,
+		],
 	),
 )); ?>

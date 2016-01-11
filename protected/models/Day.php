@@ -85,6 +85,11 @@ class Day extends CActiveRecord
 		));
 	}
 
+	public static function days(){
+		$model=Day::model()->findAll();
+		return CHtml::listData($model,'id','name');
+	}
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!

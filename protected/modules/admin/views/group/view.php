@@ -23,7 +23,13 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'name',
-		'faculty_id',
-		'direction_id',
+		'faculty_id'=>[
+			'name'=>'faculty_id',
+			'value'=>$model->faculty->name,
+		],
+		'direction_id'=>[
+			'name'=>'direction_id',
+			'value'=>$model->direction->name,
+		],
 	),
 )); ?>

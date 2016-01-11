@@ -26,6 +26,16 @@
 		<?php echo $form->textField($model,'fio',array('size'=>50,'maxlength'=>50)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'role'); ?>
+		<?php echo $form->textField($model,'role'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

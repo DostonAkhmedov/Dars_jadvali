@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'tbl_subject':
  * @property integer $id
  * @property string $name
- * @property integer $course
+ * @property string $course
  * @property integer $direction_id
  *
  * The followings are the available model relations:
@@ -33,8 +33,8 @@ class Subject extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, course, direction_id', 'required'),
-			array('course, direction_id', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>50),
+			array('direction_id', 'numerical', 'integerOnly'=>true),
+			array('name, course', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, course, direction_id', 'safe', 'on'=>'search'),
@@ -88,7 +88,7 @@ class Subject extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
-		$criteria->compare('course',$this->course);
+		$criteria->compare('course',$this->course,true);
 		$criteria->compare('direction_id',$this->direction_id);
 
 		return new CActiveDataProvider($this, array(
@@ -96,9 +96,9 @@ class Subject extends CActiveRecord
 		));
 	}
 
-	public function subjects(){
-		$models=self::model()->findAll();
-		return CHtml::listData($models,'id','name');
+	public static function subjects(){
+		$model=Subject::model()->findAll();
+		return CHtml::listData($model,'id','name');
 	}
 
 	/**

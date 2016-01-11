@@ -18,7 +18,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'group_id'); ?>
-		<?php echo $form->textField($model,'group_id'); ?>
+		<?php echo $form->dropDownList($model,'group_id',Group::groups()); ?>
 	</div>
 
 	<div class="row">

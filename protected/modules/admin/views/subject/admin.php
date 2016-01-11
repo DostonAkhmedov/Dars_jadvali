@@ -45,10 +45,20 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'id',
+		'id'=>[
+			'name'=>'id',
+			'htmlOptions'=>['width'=>30],
+		],
 		'name',
-		'course',
-		'direction_id',
+		'course'=>[
+			'name'=>'course',
+			'filter'=>Group::courses(),
+		],
+		'direction_id'=>[
+			'name'=>'direction_id',
+			'value'=>'$data->direction->name',
+			'filter'=>Direction::all(),
+		],
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -91,7 +91,7 @@ class Department extends CActiveRecord
 		));
 	}
 
-	public function forTeacher(){
+	public static function forTeacher(){
 		$models=self::model()->findAll();
 		return CHtml::listData($models,'id','name');
 	}
