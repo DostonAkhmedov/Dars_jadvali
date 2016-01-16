@@ -46,6 +46,16 @@
 		<?php echo $form->textField($model,'room',array('size'=>10,'maxlength'=>10)); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'megalka'); ?>
+		<?php echo $form->dropDownList($model,'megalka',Dgst::megalka()); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'teacher2_id'); ?>
+		<?php echo $form->dropDownList($model,'teacher2_id', Teacher::teachers()); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

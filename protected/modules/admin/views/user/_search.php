@@ -28,7 +28,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'role'); ?>
-		<?php echo $form->textField($model,'role'); ?>
+		<?php echo $form->dropDownList($model,'role',[1=>'User',2=>'Moderator']); ?>
 	</div>
 
 	<div class="row">

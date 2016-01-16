@@ -34,37 +34,60 @@
 <body>
 
 <div class="container" id="page">
-
-    <div id="header">
-        <div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-    </div>
+    <!---->
+    <!--    <div id="header">-->
+    <!--        <div id="logo">--><?php //echo CHtml::encode(Yii::app()->name); ?><!--</div>-->
+    <!--    </div>-->
     <!-- header -->
 
-    <div id="mainmenu">
-        <?php $this->widget('zii.widgets.CMenu', array(
-            'items' => array(
-                array('label' => 'Foydalanuvchi', 'url' => array('user/index')),
-                array('label' => 'Fanlar', 'url' => array('subject/index')),
-                array('label' => 'O\'qituvchi', 'url' => array('teacher/index')),
-                array('label' => 'Fan O\'qituvchisi', 'url' => array('subjectTeacher/index')),
-                array('label' => 'Talaba', 'url' => array('student/index')),
-                array('label' => 'Guruh', 'url' => array('group/index')),
-                array('label' => 'Fakultet', 'url' => array('faculty/index')),
-                array('label' => 'Yo\'nalish', 'url' => array('direction/index')),
-                array('label' => 'Kafedra', 'url' => array('department/index')),
-                array('label' => 'Kun', 'url' => array('day/index')),
-                array('label' => 'Home', 'url' => array('/site/index')),
-                array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
-                array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest)
-            ),
-        )); ?>
-    </div>
-    <!-- mainmenu -->
-    <?php if (isset($this->breadcrumbs)): ?>
-        <?php $this->widget('zii.widgets.CBreadcrumbs', array(
-            'links' => $this->breadcrumbs,
-        )); ?><!-- breadcrumbs -->
-    <?php endif ?>
+    <div style="margin-top: 300px"></div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#example-navbar-collapse-6">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/user/index">Foydalanuvchi</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/subject/index">Fanlar</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/teacher/index">O'qituvchi</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/subjectTeacher/index">Fan O'qituvchisi</a>
+                    </li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/dgst/index">Kun Guruh Fan O'qituvchi</a>
+                    </li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/student/index">Talaba</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/group/index">Guruh</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/faculty/index">Fakultet</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/direction/index">Yo'nalish</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/department/index">Kafedra</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/admin/day/index">Kun</a></li>
+                    <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/index">Bosh menyu</a></li>
+                    <?php if (Yii::app()->user->isGuest): ?>
+                        <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/site/login">Kirish</a></li>
+                    <?php else: ?>
+                        <li>
+                            <a href="<?php echo Yii::app()->request->baseUrl; ?>/site/logout">
+                                Chiqish(<?php echo Yii::app()->user->name; ?>)
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <form class="navbar-form navbar-right" role="search" method="post">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search" name="Searching">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
     <?php echo $content; ?>
 

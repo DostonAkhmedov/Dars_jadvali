@@ -16,6 +16,11 @@ class User extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+
+	const ROLE_ADMIN = 'admin';
+	const ROLE_MODER = 'moderator';
+	const ROLE_USER = 'user';
+
 	public function tableName()
 	{
 		return 'tbl_user';
@@ -47,8 +52,7 @@ class User extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-		);
+		return array();
 	}
 
 	/**
@@ -94,6 +98,16 @@ class User extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+
+	public function beforeSave()
+	{
+		if ($this->getIsNewRecord()){
+			$this->role=1;
+		}
+		$this->password = $this->password;
+		return parent::beforeSave();
 	}
 
 	/**

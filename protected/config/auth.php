@@ -12,7 +12,7 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-    'user' => array(
+    '1' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'User',
         'children' => array(
@@ -21,7 +21,7 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-    'moderator' => array(
+    '2' => array(
         'type' => CAuthItem::TYPE_ROLE,
         'description' => 'Moderator',
         'children' => array(
@@ -30,9 +30,9 @@ return array(
         'bizRule' => null,
         'data' => null
     ),
-    'administrator' => array(
+    '0' => array(
         'type' => CAuthItem::TYPE_ROLE,
-        'description' => 'Administrator',
+        'description' => 'Admin',
         'children' => array(
             'moderator',         // позволим админу всё, что позволено модератору
         ),

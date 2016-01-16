@@ -33,5 +33,12 @@
 	<?php echo CHtml::encode($data->room); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('megalka')); ?>:</b>
+	<?php echo CHtml::encode($data->megalka); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('teacher2_id')); ?>:</b>
+	<?php echo CHtml::encode($data->teacher->fio); ?>
+	<br />
 
 </div>

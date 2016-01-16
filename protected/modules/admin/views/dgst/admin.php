@@ -73,6 +73,15 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 			'name'=>'para',
 			'filter'=>Dgst::para(),
 		],
+		'megalka'=>[
+			'name'=>'megalka',
+			'filter'=>Dgst::megalka(),
+		],
+		'teacher2_id'=>[
+			'name'=>'teacher2_id',
+			'value'=>'$data->teacher->fio',
+			'filter'=>Teacher::teachers(),
+		],
 		/*
 		'room',
 		*/

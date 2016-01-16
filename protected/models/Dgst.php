@@ -11,8 +11,11 @@
  * @property integer $teacher_id
  * @property integer $para
  * @property string $room
+ * @property integer $megalka
+ * @property integer $teacher2_id
  *
  * The followings are the available model relations:
+ * @property Teacher $teacher2
  * @property Day $day
  * @property Group $group
  * @property Subject $subject
@@ -37,11 +40,11 @@ class Dgst extends CActiveRecord
         // will receive user inputs.
         return array(
             array('day_id, group_id, subject_id, teacher_id, para, room', 'required'),
-            array('day_id, group_id, subject_id, teacher_id, para', 'numerical', 'integerOnly' => true),
+            array('day_id, group_id, subject_id, teacher_id, para, megalka, teacher2_id', 'numerical', 'integerOnly' => true),
             array('room', 'length', 'max' => 10),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, day_id, group_id, subject_id, teacher_id, para, room', 'safe', 'on' => 'search'),
+            array('id, day_id, group_id, subject_id, teacher_id, para, room, megalka, teacher2_id', 'safe', 'on' => 'search'),
         );
     }
 
@@ -53,6 +56,7 @@ class Dgst extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
+            'teacher2' => array(self::BELONGS_TO, 'Teacher', 'teacher2_id'),
             'day' => array(self::BELONGS_TO, 'Day', 'day_id'),
             'group' => array(self::BELONGS_TO, 'Group', 'group_id'),
             'subject' => array(self::BELONGS_TO, 'Subject', 'subject_id'),
@@ -73,6 +77,8 @@ class Dgst extends CActiveRecord
             'teacher_id' => 'Teacher',
             'para' => 'Para',
             'room' => 'Room',
+            'megalka' => 'Megalka',
+            'teacher2_id' => 'Teacher2',
         );
     }
 
@@ -91,9 +97,7 @@ class Dgst extends CActiveRecord
     public function search()
     {
         // @todo Please modify the following code to remove attributes that should not be searched.
-
         $criteria = new CDbCriteria;
-
         $criteria->compare('id', $this->id);
         $criteria->compare('day_id', $this->day_id);
         $criteria->compare('group_id', $this->group_id);
@@ -101,6 +105,8 @@ class Dgst extends CActiveRecord
         $criteria->compare('teacher_id', $this->teacher_id);
         $criteria->compare('para', $this->para);
         $criteria->compare('room', $this->room, true);
+        $criteria->compare('megalka', $this->megalka);
+        $criteria->compare('teacher2_id', $this->teacher2_id);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
@@ -112,6 +118,15 @@ class Dgst extends CActiveRecord
         $array = [];
         for ($i = 1; $i <= 4; $i++)
             $array[$i] = $i;
+        return $array;
+    }
+
+    public static function megalka()
+    {
+        $array = [];
+        $array[1] = "yo'q";
+        $array[2] = "toq";
+        $array[3] = "juft";
         return $array;
     }
 

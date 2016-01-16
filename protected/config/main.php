@@ -41,6 +41,7 @@ return array(
 			'defaultRoles' => array('guest'),
 		),
 		'user'=>array(
+			'class' => 'WebUser',
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),

@@ -52,7 +52,10 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'username',
 		'password',
 		'fio',
-		'role',
+		'role'=>[
+			'name'=>'role',
+			'filter'=>[1=>'User',2=>'Moderator'],
+		],
 		'email',
 		array(
 			'class'=>'CButtonColumn',
