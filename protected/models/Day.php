@@ -59,6 +59,75 @@ class Day extends CActiveRecord
 		);
 	}
 
+	public static function forMegalka(){
+		if ((int)date("m") >= 1 && (int)date("m") <= 8) {
+			$day_of_week_second_september = (int)date("w");
+			$year = (int)date("Y") - 1;
+		} elseif ((int)date("m") >= 9 && (int)date("m") <= 12) {
+			$day_of_week_second_september = (int)date("w");
+			$year = (int)date("Y");
+		}
+		$day = 2;
+		$month = 9;
+		$r="02.09.".($year);
+		$d=strtotime((string)$r);
+		$inc_day = (int)date("w",$d);
+		$current_date = date("j.m.Y");
+		$toq = true;
+		$juft = false;
+		$alfa = 1;
+		while (!($day == (int)date("j") && $month == (int)date("m") && $year == (int)date("Y"))) {
+			if ($inc_day == 0) {
+				$alfa++;
+			}
+			if ($alfa % 2 == 0) {
+				$juft = true;
+				$toq = false;
+			} else {
+				$juft = false;
+				$toq = true;
+			}
+			if ($month == 2) {
+				if ($year % 4 == 0 && $year % 100 != 0 || $year % 400 == 0) {
+					if ($day > 29) {
+						$day = 1;
+						$month++;
+					}
+				}
+				if (!($year % 4 == 0 && $year % 100 != 0 || $year % 400 == 0)) {
+					if ($day > 28) {
+						$day = 1;
+						$month++;
+					}
+				}
+
+			}
+			if ($month == 4 || $month == 6 || $month == 9 || $month == 11) {
+				if ($day > 30) {
+					$day = 1;
+					$month++;
+				}
+			}
+			if ($month == 1 || $month == 3 || $month == 5 || $month == 7 || $month == 8 || $month == 10
+				|| $month == 12
+			) {
+				if ($day > 31) {
+					$day = 1;
+					$month++;
+				}
+			}
+			if ($month > 12) {
+				$month = 1;
+				$year++;
+			}
+			$day++;
+			$r=$day.".".$month.".".$year;
+			$d=strtotime((string)$r);
+			$inc_day=(int)date("w",$d);
+		}
+	return [$toq,$juft];
+	}
+
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 *

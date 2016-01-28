@@ -27,5 +27,8 @@ $this->menu=array(
 			'name'=>'department_id',
 			'value'=>$model->department->name,
 		],
+		'login',
+		'password',
+		'role',
 	),
 )); ?>

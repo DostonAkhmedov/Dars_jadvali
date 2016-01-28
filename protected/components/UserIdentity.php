@@ -14,7 +14,7 @@ class UserIdentity extends CUserIdentity
     public function authenticate()
     {
         // Производим стандартную аутентификацию, описанную в руководстве.
-        $user = User::model()->find('LOWER(username)=?', array(strtolower($this->username)));
+        $user = Teacher::model()->find('LOWER(login)=?', array(strtolower($this->username)));
         if (($user === null) || ($this->password !== $user->password)) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
@@ -27,7 +27,7 @@ class UserIdentity extends CUserIdentity
             // в самом приложении. Используется как Yii::app()->user->name.
             // realName есть в нашей модели. У вас это может быть name, firstName
             // или что-либо ещё.
-            $this->username = $user->username;
+            $this->username = $user->login;
 
             $this->errorCode = self::ERROR_NONE;
         }

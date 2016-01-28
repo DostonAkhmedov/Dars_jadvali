@@ -40,16 +40,21 @@ class SiteController extends Controller
         $keys = array_keys($_GET);
         $group_id = (int)$keys[0];
         $days = Day::model()->findAll();
+        $weeks=Day::forMegalka();
+        $toq=$weeks[0];
+        $juft=$weeks[1];
         $dgsts = [];
         foreach ($days as $day) {
             $dgsts[$day->id] = Dgst::model()->findAllByAttributes([
                 'group_id' => $group_id,
-                'day_id' => $day->id
+                'day_id' => $day->id,
             ]);
         }
         $this->renderPartial('_dars_jadvali', [
             'days' => $days,
             'dgsts' => $dgsts,
+            'toq'=>$toq,
+            'juft'=>$juft,
         ]);
     }
 
@@ -118,8 +123,11 @@ class SiteController extends Controller
         if (isset($_POST['LoginForm'])) {
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
-            if ($model->validate() && $model->login())
+            if ($model->validate() && $model->login()){
+                if(Yii::app()->user->role == 0) Yii::app()->user->returnUrl = Yii::app()->baseUrl.'/admin';
+                if(Yii::app()->user->role == 1) Yii::app()->user->returnUrl = Yii::app()->baseUrl.'/teacher';
                 $this->redirect(Yii::app()->user->returnUrl);
+            }
         }
         // display the login form
         $this->render('login', array('model' => $model));

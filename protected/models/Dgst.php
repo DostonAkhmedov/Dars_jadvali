@@ -124,9 +124,9 @@ class Dgst extends CActiveRecord
     public static function megalka()
     {
         $array = [];
-        $array[1] = "yo'q";
-        $array[2] = "toq";
-        $array[3] = "juft";
+        $array[0] = "yo'q";
+        $array[1] = "toq";
+        $array[2] = "juft";
         return $array;
     }
 

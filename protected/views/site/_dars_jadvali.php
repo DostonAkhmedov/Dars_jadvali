@@ -12,50 +12,32 @@
         </tr>
         </thead>
         <tbody>
-        <?php
-        $para = [];
-        $subject = [];
-        $teacher = [];
-        $room = [];
-        $k = 0;
-        $inf = -111111;
-        foreach ($dgsts[$day->id] as $dgst) {
-            $k++;
-            $para[$k] = $dgst->para;
-            $subject[$k] = $dgst->subject->name;
-            $teacher[$k] = $dgst->teacher->fio;
-            $room[$k] = $dgst->room;
-        }
-        $para[$k + 1] = 0;
-        $subject[$k + 1] = 0;
-        $teacher[$k + 1] = 0;
-        $room[$k + 1] = 0;
-        ?>
-        <?php for ($i = 1; $i <= $k; $i++): ?>
-            <?php if($subject[$i]!=$inf):?>
-            <tr align="center">
-                <?php if ($para[$i] != $inf): ?>
-                    <td <?php if ($para[$i] == $para[$i + 1]) {
-                        echo ' rowspan="2"';
-                        $para[$i + 1] = $inf;
-                    }
-                    ?>><span><?= $para[$i] ?></span></td>
-                <?php endif; ?>
-                <td>
-                    <?= $subject[$i] ?>
-                </td>
-                <?php if ($para[$i] == $para[$i + 1] && $subject[$i] == $subject[$i + 1]): ?>
-                    <td><?= $teacher[$i] . ", " . $teacher[$i+1]; ?></td>
-                    <td><?= $room[$i] . "-" . $room[$i+1]; ?></td>
-                    <?php $subject[$i + 1]=$inf ?>
-                <?php endif; ?>
-                <?php if (!($para[$i] == $para[$i + 1] && $subject[$i] == $subject[$i + 1])): ?>
-                    <td><?= $teacher[$i]; ?></td>
-                    <td><?= $room[$i]; ?></td>
-                <?php endif; ?>
-            </tr>
+        <?php foreach ($dgsts[$day->id] as $dgst): ?>
+            <?php if ($toq == true && $juft == false && $dgst->megalka == 1): ?>
+                <tr align="center">
+                    <td><?= $dgst->para; ?></td>
+                    <td><?= $dgst->subject->name; ?></td>
+                    <td><?= $dgst->teacher->fio; ?></td>
+                    <td><?= $dgst->room; ?></td>
+                </tr>
             <?php endif; ?>
-        <?php endfor; ?>
+            <?php if ($toq == false && $juft == true && $dgst->megalka == 2): ?>
+                <tr align="center">
+                    <td><?= $dgst->para; ?></td>
+                    <td><?= $dgst->subject->name; ?></td>
+                    <td><?= $dgst->teacher->fio; ?></td>
+                    <td><?= $dgst->room; ?></td>
+                </tr>
+            <?php endif; ?>
+            <?php if ($dgst->megalka == 0): ?>
+                <tr align="center">
+                    <td><?= $dgst->para; ?></td>
+                    <td><?= $dgst->subject->name; ?></td>
+                    <td><?= $dgst->teacher->fio; ?></td>
+                    <td><?= $dgst->room; ?></td>
+                </tr>
+            <?php endif; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
 <?php endforeach; ?>

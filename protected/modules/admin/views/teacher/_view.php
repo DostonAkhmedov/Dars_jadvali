@@ -17,5 +17,16 @@
 	<?php echo CHtml::encode($data->department->name); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('login')); ?>:</b>
+	<?php echo CHtml::encode($data->login); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('password')); ?>:</b>
+	<?php echo CHtml::encode($data->password); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('role')); ?>:</b>
+	<?php echo CHtml::encode($data->role); ?>
+	<br />
 
 </div>

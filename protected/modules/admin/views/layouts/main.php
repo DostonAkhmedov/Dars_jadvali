@@ -79,12 +79,6 @@
                         </li>
                     <?php endif; ?>
                 </ul>
-                <form class="navbar-form navbar-right" role="search" method="post">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search" name="Searching">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </form>
             </div>
         </div>
     </nav>

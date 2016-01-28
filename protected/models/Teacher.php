@@ -12,6 +12,10 @@
  * @property Dgst[] $dgsts
  * @property SubjectTeacher[] $subjectTeachers
  * @property Department $department
+ *
+ * @property string $login
+ * @property string $password
+ * @property integer $role
  */
 class Teacher extends CActiveRecord
 {
@@ -31,12 +35,14 @@ class Teacher extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('fio, department_id', 'required'),
-			array('department_id', 'numerical', 'integerOnly'=>true),
+			array('fio, department_id, login, password, role', 'required'),
+			array('department_id, role', 'numerical', 'integerOnly'=>true),
 			array('fio', 'length', 'max'=>50),
+			array('login', 'length', 'max'=>20),
+			array('password', 'length', 'max'=>24),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, fio, department_id', 'safe', 'on'=>'search'),
+			array('id, fio, department_id, login, password, role', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -49,6 +55,9 @@ class Teacher extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'dgsts' => array(self::HAS_MANY, 'Dgst', 'teacher_id'),
+
+			'dgsts1' => array(self::HAS_MANY, 'Dgst', 'teacher2_id'),
+
 			'subjectTeachers' => array(self::HAS_MANY, 'SubjectTeacher', 'teacher_id'),
 			'department' => array(self::BELONGS_TO, 'Department', 'department_id'),
 		);
@@ -63,6 +72,9 @@ class Teacher extends CActiveRecord
 			'id' => 'ID',
 			'fio' => 'Fio',
 			'department_id' => 'Department',
+			'login' => 'Login',
+			'password' => 'Password',
+			'role' => 'Role',
 		);
 	}
 
@@ -87,6 +99,9 @@ class Teacher extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('fio',$this->fio,true);
 		$criteria->compare('department_id',$this->department_id);
+		$criteria->compare('login',$this->login,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('role',$this->role);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
